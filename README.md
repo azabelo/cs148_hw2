@@ -15,14 +15,21 @@ This repository contains the starter code for EE/CS 148B HW 2.
 
 ## Setup
 
-We use `uv` to manage dependencies. We recommend installing `flash-attn` **after** the other packages.
+We use `uv` to manage dependencies.
 
 ```sh
-uv sync --no-install-package flash-attn
 uv sync
 ```
 
 The outer `pyproject.toml` points at the local `basics` package, so `uv run ...` should make both the systems and alignment starter code available.
+
+If you are working on a CUDA machine and want the optional FlashAttention package for the systems sections, install the `cuda` extra after the base environment is set up:
+
+```sh
+uv sync --extra cuda
+```
+
+`vllm` is intentionally not part of the default environment because the version used in the handout hard-pins a `torch` release that conflicts with the local `basics` package. If you need `vllm` for experimentation, install it in a separate environment with a compatible `torch` stack.
 
 ## Notes
 - Public tests are only provided for the helper utilities in Sections 3.3 and 3.5.
