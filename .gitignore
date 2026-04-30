@@ -3,3 +3,15 @@ __pycache__/
 .venv/
 .venv-*/
 *.egg-info/
+
+# Experiment outputs / logs (can be huge)
+alignment/results/
+wandb/
+*.log
+
+# Local vLLM environment (separate project; large)
+vllm-eval/
+
+# Codex / editor state
+.codex/
+.codex

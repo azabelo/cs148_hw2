@@ -29,7 +29,7 @@ If you are working on a CUDA machine and want the optional FlashAttention packag
 uv sync --extra cuda
 ```
 
-`vllm` is intentionally not part of the default environment because the version used in the handout hard-pins a `torch` release that conflicts with the local `basics` package. If you need `vllm` for experimentation, install it in a separate environment with a compatible `torch` stack.
+`vllm` is intentionally not part of the default environment because the version used in the handout hard-pins a `torch` release that conflicts with the local `basics` package. For GSM8K eval with vLLM, use the separate uv project under `vllm-eval/` (its own `uv.lock` and resolver): run `uv sync --project vllm-eval` from the repo root, then `bash scripts/run_alignment_eval_vllm.sh ...` or `uv run --project vllm-eval python -m alignment.eval ...` with `PYTHONPATH` set to the repo root. See `vllm-eval/README.md`.
 
 ## Notes
 - Public tests are only provided for the helper utilities in Sections 3.3 and 3.5.
